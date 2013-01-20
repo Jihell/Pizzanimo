@@ -1,0 +1,12 @@
+/* 
+    Document   : reset
+    Created on : 29 déc. 2011, 17:45:00
+    Author     : jihell
+    Description:
+        Reset all default style in document
+*/
+
+h1, h2, h3, h4, h5, h6 {margin: 0px; text-indent: 0px; padding: 0px;}
+p {margin: 0px; padding: 0px;}
+a {text-decoration: none; color: inherit;}
+body, html {margin: 0px; padding: 0px;}

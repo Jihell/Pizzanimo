@@ -1,0 +1,7 @@
+AuthUserFile /var/trololololololololo/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Administrateur"
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>

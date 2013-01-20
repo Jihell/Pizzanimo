@@ -1,0 +1,160 @@
+{node::trace}
+<div id="HeCallstack"{$forceDisplay}>
+	{node::bench}
+	<h4>Page appelé</h4>
+	<p>{$requestedUri}</p>
+	<h4>Statistiques</h4>
+	<table>
+		<thead>
+			<tr>
+				<th><img src="images/he/database-32x32.png" title="Nombre de requètes" /></th>
+				<th><img src="images/he/chrono-32x32.png" title="Durée totale d'exécution" /></th>
+				<th><img src="images/he/ram-32x32.png" title="Utilisation maximum de la mémoire" /></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{$queryCount} requète(s)</td>
+				<td>{$totalTime} ms</td>
+				<td>{$maxRam} Mo</td>
+			</tr>
+		</tbody>
+	</table>
+	{/node::bench}
+	<h4>Traces</h4>
+	<ul class="HeCallstackCat">
+		<li rel="HeTraceTous">Tous</li>
+		<li rel="HeTraceBdd">Bdd</li>
+		<li rel="HeTraceSession">Session</li>
+		<li rel="HeTraceCookie">Cookies</li>
+		<li rel="HeTraceGET">GET</li>
+		<li rel="HeTracePOST">POST</li>
+		<li rel="HeTraceCONST">CONST</li>
+	</ul>
+	<table class="HeCallStackSequence" id="HeTraceTous">
+		<thead>
+			<tr>
+				<th>Time (ms)</th>
+				<th>PrevTrace (ms)</th>
+				<th>RAM (Mo)</th>
+				<th>Type</th>
+				<th>Message</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceTous}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$time}</td>
+				<td>{$between}</td>
+				<td>{$ram}</td>
+				<td>{$type}</td>
+				<td style="text-align: left;">{$msg}</td>
+			</tr>
+			{/node::traceTous}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTraceBdd">
+		<thead>
+			<tr>
+				<th>Time (ms)</th>
+				<th>PrevTrace (ms)</th>
+				<th>RAM (Mo)</th>
+				<th>Message</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceBdd}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$time}</td>
+				<td>{$between}</td>
+				<td>{$ram}</td>
+				<td style="text-align: left;">{$msg}</td>
+			</tr>
+			{/node::traceBdd}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTraceSession">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Valeur</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceSession}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$name}</td>
+				<td style="text-align: left;">{$value}</td>
+			</tr>
+			{/node::traceSession}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTraceCookie">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Valeur</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceCookie}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$name}</td>
+				<td style="text-align: left;">{$value}</td>
+			</tr>
+			{/node::traceCookie}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTraceGET">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Valeur</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceGET}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$name}</td>
+				<td style="text-align: left;">{$value}</td>
+			</tr>
+			{/node::traceGET}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTracePOST">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Valeur</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::tracePOST}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$name}</td>
+				<td style="text-align: left;">{$value}</td>
+			</tr>
+			{/node::tracePOST}
+		</tbody>
+	</table>
+	<table class="HeCallStackSequence" id="HeTraceCONST">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Valeur</th>
+			</tr>
+		</thead>
+		<tbody>
+			{node::traceCONST}
+			<tr style="background: rgba({$degre},0.2);">
+				<td>{$name}</td>
+				<td style="text-align: left;">{$value}</td>
+			</tr>
+			{/node::traceCONST}
+		</tbody>
+	</table>
+	<div id="HeCallStackClose"></div>
+</div>
+<script type="text/javascript" src="js/he/handler/trace.js"></script>
+<div id="HeSuTrace"></div>
+{/node::trace}
